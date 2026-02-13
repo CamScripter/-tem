@@ -421,13 +421,13 @@ for _, v in ipairs(mainFrame:GetDescendants()) do
         TweenService:Create(v, TweenInfo.new(0.3), {TextTransparency = 0}):Play()
     end
 end
-local watermark = Instance.new("TextLabel")
-watermark.Text = "Mac Scripts"
-watermark.Size = UDim2.new(1,0,0,18)
-watermark.Position = UDim2.new(0,0,1,-18)
-watermark.BackgroundTransparency = 1
-watermark.TextColor3 = Color3.fromRGB(255,140,0)
-watermark.TextTransparency = 0.85
-watermark.Font = Enum.Font.Gotham
-watermark.TextSize = 11
-watermark.Parent = mainFrame
+-- GUI'yi en üste taşı (Always On Top)
+
+mainFrame.ZIndex = 10
+
+for _, v in pairs(mainFrame:GetDescendants()) do
+    if v:IsA("GuiObject") then
+        v.ZIndex = 10
+    end
+end
+
